@@ -3,7 +3,14 @@
  * @param {object} assignments - An object with assignments organized by category.
  * @returns {string[]} An array of strings, which represent all of the keys in the object.
  */
-function getAssignmentTypes(assignments) {}
+function getAssignmentTypes(assignments) {
+  let result = [];
+  for (let assignment in assignments) { // get the objKeys using for...in loops
+    result.push(assignment);
+    // console.log(result)
+  }
+  return result;
+}
 
 /**
  * Returns an integer that represents the score as a percentage.
@@ -12,7 +19,12 @@ function getAssignmentTypes(assignments) {}
  * @param {number} score.max - The maximum amount of points that could be received on the assignment.
  * @returns {number} A rounded integer, representing a percentage.
  */
-function getPercentageScore(score) {}
+function getPercentageScore(score) {
+  let percentage = 0;
+  percentage = Math.round((score.received / score.max) * 100); // round of the integer
+  // console.log(Math.round((score.received / score.max) * 100))
+  return percentage;
+}
 
 /**
  * Given two score objects, returns an integer that represents the highest percentage received.
@@ -22,7 +34,14 @@ function getPercentageScore(score) {}
  * @param {object} score2 - An object representing another score of an assignment. Has the same shape as `score1`.
  * @returns {number} A rounded integer, representing the highest percentage scored among the two given scores.
  */
-function getHighestOfTwoScores(score1, score2) {}
+function getHighestOfTwoScores(score1, score2) {
+  // get the highest percentage between the two score
+  let percentage1 = Math.round((score1.received / score1.max) * 100);
+  let percentage2 = Math.round((score2.received / score2.max) * 100);
+  
+  return Math.max(percentage1, percentage2)
+  // console.log(Math.max(percentage1, percentage2))
+}
 
 // Don't change anything below this line.
 module.exports = {
