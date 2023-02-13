@@ -31,11 +31,17 @@ function getHighestOfTwoScores(score1, score2) {
   //console.log(score1);
   //console.log(score2);
 
-  let answer1 = (score1.received / score1.max) * 100;
-  let answer2 = (score2.received / score2.max) * 100;
+  let answer1 = Math.round((score1.received / score1.max) * 100);
+  let answer2 = Math.round((score2.received / score2.max) * 100);
 
-  //console.log(Math.round(answer1));
-  return Math.round(answer2);
+  console.log(answer1);
+  console.log(answer2);
+
+  if (answer1 > answer2) {
+    return answer1;
+  } else {
+    return answer2;
+  }
 }
 
 // Don't change anything below this line.
